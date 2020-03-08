@@ -24,4 +24,11 @@ public class IPLTest {
         Assert.assertEquals(333.33, censusCSV[0].strikeRates,0.0);
     }
 
+    @Test
+    public void givenIplCSVFile_ShouldReturnBatsmanWithMost4sAnd6s() throws IOException {
+        IPLAnalyser censusAnalyser = new IPLAnalyser();
+        String numOfRecords = censusAnalyser.loadCensusData(SortField.FOURS_AND_SIX,IPL_CENSUS_CSV_FILE_PATH);
+        IPLDTO[] censusCSV = new Gson().fromJson(numOfRecords, IPLDTO[].class);
+        Assert.assertEquals("Andre Russell", censusCSV[0].player);
+    }
 }
