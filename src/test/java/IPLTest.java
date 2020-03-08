@@ -10,10 +10,11 @@ public class IPLTest {
 
     @Test
     public void givenIplCSVFile_ShouldReturnTopBattingAverages() throws IOException {
-        StateCensusAnalyser censusAnalyser = new StateCensusAnalyser();
+        IPLAnalyser censusAnalyser = new IPLAnalyser();
         String numOfRecords = censusAnalyser.loadCensusData(SortField.AVG,IPL_CENSUS_CSV_FILE_PATH);
-        CensusDTO[] censusCSV = new Gson().fromJson(numOfRecords, CensusDTO[].class);
+        IPLDTO[] censusCSV = new Gson().fromJson(numOfRecords, IPLDTO[].class);
         Assert.assertEquals(83.2, censusCSV[0].average,0.0);
     }
+
 
 }

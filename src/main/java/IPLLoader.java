@@ -12,12 +12,12 @@ import java.util.stream.StreamSupport;
 
 
 
-public class CSVStateCensus {
-    Map<SortField, Comparator<CensusDTO>> sortMap;
-    List<CensusDTO> censusDTOList;
-    Map<String, CensusDTO> censusMap = new HashMap<>();
+public class IPLLoader {
+    Map<SortField, Comparator<IPLDTO>> sortMap;
+    List<IPLDTO> IPLDTOList;
+    Map<String, IPLDTO> censusMap = new HashMap<>();
 
-    public CSVStateCensus() {
+    public IPLLoader() {
         this.sortMap = new HashMap<>();
         this.sortMap.put(SortField.RUNS, Comparator.comparing(census -> census.player));
         this.sortMap.put(SortField.AVG, Comparator.comparing(census -> census.average));
@@ -26,32 +26,31 @@ public class CSVStateCensus {
     }
 
     public String loadCensusData(SortField sortField, String csvFilePath) throws IOException {
-
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
             Iterator<IPLFactsCSV> CSVStateIterator = csvBuilder.getCSVIterator(reader, IPLFactsCSV.class);
             Iterable<IPLFactsCSV> csvIterable = () -> CSVStateIterator;
             StreamSupport.stream(csvIterable.spliterator(), false)
                     .map(IPLFactsCSV.class::cast)
-                    .forEach(censusCSV -> censusMap.put(censusCSV.player, new CensusDTO(censusCSV)));
+                    .forEach(censusCSV -> censusMap.put(censusCSV.player, new IPLDTO(censusCSV)));
             if (censusMap == null || censusMap.size() == 0) {
                 throw new IPLException("no census data", IPLException.ExceptionType.NO_CENSUS_DATA);
             }
-            censusDTOList = censusMap.values().stream().collect(Collectors.toList());
+            IPLDTOList = censusMap.values().stream().collect(Collectors.toList());
             this.sort(this.sortMap.get(sortField).reversed());
-            String sortedStateCensus = new Gson().toJson(this.censusDTOList);
+            String sortedStateCensus = new Gson().toJson(this.IPLDTOList);
             return sortedStateCensus;
         }
     }
 
-    private void sort(Comparator<CensusDTO> reversed) {
-        for (int i = 0; i < censusDTOList.size() - 1; i++) {
-            for (int j = 0; j < censusDTOList.size() - i - 1; j++) {
-                CensusDTO census1 = censusDTOList.get(j);
-                CensusDTO census2 = censusDTOList.get(j + 1);
+    private void sort(Comparator<IPLDTO> reversed) {
+        for (int i = 0; i < IPLDTOList.size() - 1; i++) {
+            for (int j = 0; j < IPLDTOList.size() - i - 1; j++) {
+                IPLDTO census1 = IPLDTOList.get(j);
+                IPLDTO census2 = IPLDTOList.get(j + 1);
                 if (reversed.compare(census1, census2) > 0) {
-                    censusDTOList.set(j, census2);
-                    censusDTOList.set(j + 1, census1);
+                    IPLDTOList.set(j, census2);
+                    IPLDTOList.set(j + 1, census1);
                 }
             }
         }

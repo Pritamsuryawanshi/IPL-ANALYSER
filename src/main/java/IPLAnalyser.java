@@ -1,9 +1,9 @@
 import java.io.IOException;
 
-public class StateCensusAnalyser {
+public class IPLAnalyser {
 
     public String loadCensusData(SortField avg, String csvFilePath) throws IOException {
-        String censusMap = new CSVStateCensus().loadCensusData(avg, csvFilePath);
+        String censusMap = new IPLLoader().loadCensusData(avg, csvFilePath);
         return censusMap;
     }
 }

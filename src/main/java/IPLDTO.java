@@ -1,4 +1,4 @@
-public class CensusDTO {
+public class IPLDTO {
 
     public String player;
     public double average;
@@ -6,7 +6,7 @@ public class CensusDTO {
     public int fours;
     public int six;
 
-    public CensusDTO(IPLFactsCSV iplFactsCSV) {
+    public IPLDTO(IPLFactsCSV iplFactsCSV) {
         player = iplFactsCSV.player;
         average = iplFactsCSV.averages;
         strikeRates = iplFactsCSV.strikeRates;
