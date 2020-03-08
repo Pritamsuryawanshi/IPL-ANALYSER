@@ -16,5 +16,12 @@ public class IPLTest {
         Assert.assertEquals(83.2, censusCSV[0].average,0.0);
     }
 
+    @Test
+    public void givenIplCSVFile_ShouldReturnTopStrikingRates() throws IOException {
+        IPLAnalyser censusAnalyser = new IPLAnalyser();
+        String numOfRecords = censusAnalyser.loadCensusData(SortField.STRIKE_RATE,IPL_CENSUS_CSV_FILE_PATH);
+        IPLDTO[] censusCSV = new Gson().fromJson(numOfRecords, IPLDTO[].class);
+        Assert.assertEquals(333.33, censusCSV[0].strikeRates,0.0);
+    }
 
 }
