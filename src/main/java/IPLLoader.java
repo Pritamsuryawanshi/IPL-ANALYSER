@@ -23,6 +23,7 @@ public class IPLLoader {
         this.sortMap.put(SortField.AVG, Comparator.comparing(census -> census.average));
         this.sortMap.put(SortField.STRIKE_RATE, Comparator.comparing(census -> census.strikeRates));
         this.sortMap.put(SortField.FOURS_AND_SIX, Comparator.comparing(census -> census.fours + census.six));
+        this.sortMap.put(SortField.STRIKING_RATES_WITH_FOURS_AND_SIX, Comparator.comparing(census -> census.fours + census.six));
     }
 
     public String loadCensusData(SortField sortField, String csvFilePath) throws IOException {
@@ -37,7 +38,7 @@ public class IPLLoader {
                 throw new IPLException("no census data", IPLException.ExceptionType.NO_CENSUS_DATA);
             }
             IPLDTOList = censusMap.values().stream().collect(Collectors.toList());
-            this.sort(this.sortMap.get(sortField).reversed());
+;            this.sort(this.sortMap.get(sortField).reversed());
             String sortedStateCensus = new Gson().toJson(this.IPLDTOList);
             return sortedStateCensus;
         }
