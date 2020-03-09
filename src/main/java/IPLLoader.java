@@ -24,6 +24,7 @@ public class IPLLoader {
         this.sortMap.put(SortField.STRIKE_RATE, Comparator.comparing(census -> census.strikeRates));
         this.sortMap.put(SortField.FOURS_AND_SIX, Comparator.comparing(census -> census.fours + census.six));
         this.sortMap.put(SortField.STRIKING_RATES_WITH_FOURS_AND_SIX, Comparator.comparing(census -> census.fours + census.six));
+        this.sortMap.put(SortField.STRIKING_RATES_WITH_AVERAGES, Comparator.comparing(census -> census.strikeRates + census.average));
     }
 
     public String loadCensusData(SortField sortField, String csvFilePath) throws IOException {

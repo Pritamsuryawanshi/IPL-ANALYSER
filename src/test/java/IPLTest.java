@@ -36,4 +36,11 @@ public class IPLTest {
         IPLDTO[] censusCSV = new Gson().fromJson(numOfRecords, IPLDTO[].class);
         Assert.assertEquals(204.81, censusCSV[0].strikeRates,0.0);
     }
+
+    @Test
+    public void givenIplCSVFile_ShouldReturnBatsmanWithMaxStrikeRateAndAverages() throws IOException {
+        String numOfRecords = iplAnalyser.LoadIplData(SortField.AVG,IPL_CENSUS_CSV_FILE_PATH);
+        IPLDTO[] censusCSV = new Gson().fromJson(numOfRecords, IPLDTO[].class);
+        Assert.assertEquals(134.62, censusCSV[0].strikeRates,0.0);
+    }
 }
