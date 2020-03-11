@@ -52,10 +52,16 @@ public class IPLTest {
     }
 
     @Test
-    public void givenIplCSVFile_ShouldReturnTopBallingAverage() throws IOException {
+    public void givenIplCSVFile_ShouldReturnTopBowlingAverage() throws IOException {
         String SortedIPLData = iplAnalyser.LoadIplData(SortField.BALLING_AVERAGE, IPL_MOST_WKTS_CSV_FILE_PATH, IPLAnalyser.IPL.WICKETS_CSV);
         IPLDTO[] censusCSV = new Gson().fromJson(SortedIPLData, IPLDTO[].class);
         Assert.assertEquals("Krishnappa Gowtham", censusCSV[0].player);
     }
 
+    @Test
+    public void givenIplCSVFile_ShouldReturnTopStrikingRatesOfTheBowlers() throws IOException {
+        String SortedIPLData = iplAnalyser.LoadIplData(SortField.STRIKE_RATE, IPL_MOST_WKTS_CSV_FILE_PATH, IPLAnalyser.IPL.WICKETS_CSV);
+        IPLDTO[] censusCSV = new Gson().fromJson(SortedIPLData, IPLDTO[].class);
+        Assert.assertEquals("Krishnappa Gowtham", censusCSV[0].player);
+    }
 }

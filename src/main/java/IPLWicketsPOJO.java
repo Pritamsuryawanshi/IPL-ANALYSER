@@ -9,4 +9,7 @@ public class IPLWicketsPOJO {
 
     @CsvBindByName(column = "Avg", required = true)
     public double average;
+
+    @CsvBindByName(column = "SR", required = true)
+    public double strikeRate;
 }

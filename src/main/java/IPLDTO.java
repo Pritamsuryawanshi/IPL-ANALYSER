@@ -21,5 +21,7 @@ public class IPLDTO {
         overs = iplWicketsPOJO.overs;
         player = iplWicketsPOJO.player;
         average = iplWicketsPOJO.average;
+        strikeRates = iplWicketsPOJO.strikeRate;
+
     }
 }
