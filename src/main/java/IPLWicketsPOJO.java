@@ -1,4 +1,5 @@
 import com.opencsv.bean.CsvBindByName;
+
 public class IPLWicketsPOJO {
 
     @CsvBindByName(column = "PLAYER", required = true)
@@ -12,8 +13,15 @@ public class IPLWicketsPOJO {
 
     @CsvBindByName(column = "SR", required = true)
     public double strikeRate;
+
     @CsvBindByName(column = "Econ", required = true)
     public double economyRate;
+
+    @CsvBindByName(column = "5w", required = true)
+    public int fiveWicket;
+
+    @CsvBindByName(column = "4w", required = true)
+    public int fourWicket;
 
 
 }

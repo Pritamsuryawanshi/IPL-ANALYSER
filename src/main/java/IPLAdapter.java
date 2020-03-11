@@ -27,6 +27,8 @@ public class IPLAdapter {
         this.sortMap.put(SortField.STRIKING_RATES_WITH_AVERAGES, Comparator.comparing(census -> census.strikeRates + census.average));
         this.sortMap.put(SortField.BALLING_AVERAGE, Comparator.comparing(census -> census.average));
         this.sortMap.put(SortField.ECONOMY_RATE, Comparator.comparing(census -> census.economyRate));
+        this.sortMap.put(SortField.FOUR_AND_FIVE_WICKET, Comparator.comparing(census -> census.fourWicket+census.fiveWicket));
+
 
     }
 

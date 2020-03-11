@@ -7,6 +7,9 @@ public class IPLDTO {
     public double strikeRates;
     public int fours;
     public int six;
+    public int fourWicket;
+    public int fiveWicket;
+
     public double economyRate;
 
 
@@ -24,5 +27,7 @@ public class IPLDTO {
         average = iplWicketsPOJO.average;
         strikeRates = iplWicketsPOJO.strikeRate;
         economyRate = iplWicketsPOJO.economyRate;
+        fourWicket = iplWicketsPOJO.fourWicket;
+        fiveWicket = iplWicketsPOJO.fiveWicket;
     }
 }
