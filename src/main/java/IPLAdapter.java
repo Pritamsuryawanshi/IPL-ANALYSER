@@ -26,6 +26,8 @@ public class IPLAdapter {
         this.sortMap.put(SortField.STRIKING_RATES_WITH_FOURS_AND_SIX, Comparator.comparing(census -> census.fours + census.six));
         this.sortMap.put(SortField.STRIKING_RATES_WITH_AVERAGES, Comparator.comparing(census -> census.strikeRates + census.average));
         this.sortMap.put(SortField.BALLING_AVERAGE, Comparator.comparing(census -> census.average));
+        this.sortMap.put(SortField.ECONOMY_RATE, Comparator.comparing(census -> census.economyRate));
+
     }
 
   //  public <E> Map<String, CensusDTO> loadCensusData(Class<E> CensusCSVClass, String... csvFilePath)
@@ -35,7 +37,6 @@ public class IPLAdapter {
           ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
           Iterator<E> CSVStateIterator = csvBuilder.getCSVIterator(reader, CensusCSVClass);
           Iterable<E> csvIterable = () -> CSVStateIterator;
-          System.out.println("FILED IS" +sortField);
           if (CensusCSVClass.getName().equals("IPLRunsPOJO")) {
               StreamSupport.stream(csvIterable.spliterator(), false)
                       .map(IPLRunsPOJO.class::cast)
