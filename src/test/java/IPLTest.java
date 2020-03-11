@@ -78,4 +78,11 @@ public class IPLTest {
         IPLDTO[] censusCSV = new Gson().fromJson(SortedIPLData, IPLDTO[].class);
         Assert.assertEquals(16.81, censusCSV[0].strikeRates,0.0);
     }
+
+    @Test
+    public void givenIplCSVFile_ShouldReturnBowlersHavingBestStrikingRateAndAverage() throws IOException {
+        String SortedIPLData = iplAnalyser.LoadIplData(SortField.AVG, IPL_MOST_WICKETS_CSV_FILE_PATH, IPLAnalyser.IPL.WICKETS_CSV);
+        IPLDTO[] censusCSV = new Gson().fromJson(SortedIPLData, IPLDTO[].class);
+        Assert.assertEquals(120.0, censusCSV[0].strikeRates,0.0);
+    }
 }
