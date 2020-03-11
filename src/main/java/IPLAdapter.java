@@ -28,8 +28,7 @@ public class IPLAdapter {
         this.sortMap.put(SortField.BALLING_AVERAGE, Comparator.comparing(census -> census.average));
         this.sortMap.put(SortField.ECONOMY_RATE, Comparator.comparing(census -> census.economyRate));
         this.sortMap.put(SortField.FOUR_AND_FIVE_WICKET, Comparator.comparing(census -> census.fourWicket+census.fiveWicket));
-
-
+        this.sortMap.put(SortField.WICKETS_AND_AVERAGE, Comparator.comparing(census -> census.wickets));
     }
 
   //  public <E> Map<String, CensusDTO> loadCensusData(Class<E> CensusCSVClass, String... csvFilePath)

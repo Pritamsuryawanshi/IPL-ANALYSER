@@ -9,7 +9,7 @@ public class IPLDTO {
     public int six;
     public int fourWicket;
     public int fiveWicket;
-
+    public int wickets;
     public double economyRate;
 
 
@@ -29,5 +29,6 @@ public class IPLDTO {
         economyRate = iplWicketsPOJO.economyRate;
         fourWicket = iplWicketsPOJO.fourWicket;
         fiveWicket = iplWicketsPOJO.fiveWicket;
+        wickets = iplWicketsPOJO.wickets;
     }
 }
