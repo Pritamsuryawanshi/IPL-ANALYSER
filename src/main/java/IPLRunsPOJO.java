@@ -1,5 +1,5 @@
 import com.opencsv.bean.CsvBindByName;
-public class IPLFactsCSV {
+public class IPLRunsPOJO {
 
     @CsvBindByName(column = "PLAYER", required = true)
     public String player;
