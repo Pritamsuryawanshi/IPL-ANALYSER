@@ -6,4 +6,7 @@ public class IPLWicketsPOJO {
 
     @CsvBindByName(column = "Ov", required = true)
     public double overs;
+
+    @CsvBindByName(column = "Avg", required = true)
+    public double average;
 }

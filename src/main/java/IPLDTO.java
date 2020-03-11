@@ -20,5 +20,6 @@ public class IPLDTO {
     public IPLDTO(IPLWicketsPOJO iplWicketsPOJO) {
         overs = iplWicketsPOJO.overs;
         player = iplWicketsPOJO.player;
+        average = iplWicketsPOJO.average;
     }
 }
