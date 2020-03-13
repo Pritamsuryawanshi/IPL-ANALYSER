@@ -9,7 +9,7 @@ public class IPLWicketsPOJO {
     public double overs;
 
     @CsvBindByName(column = "Avg", required = true)
-    public double average;
+    public double bowlingAverage;
 
     @CsvBindByName(column = "SR", required = true)
     public double strikeRate;
@@ -25,8 +25,4 @@ public class IPLWicketsPOJO {
 
     @CsvBindByName(column = "Wkts", required = true)
     public int wickets;
-
-
-
-
 }

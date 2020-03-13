@@ -1,9 +1,11 @@
 import java.io.IOException;
+import java.util.Map;
 
 public class WicketsAdapter {
 
-    public String loadCensusData(SortField field, String csvFilePath) throws IOException {
-        String numOfRecords = new IPLAdapter().loadCensusData(field, csvFilePath, IPLWicketsPOJO.class);
-        return numOfRecords;
+    public Map<String, IPLDTO> loadCensusData( String... csvFilePath) throws IOException {
+        Map<String, IPLDTO> iplMap = new IPLAdapter().loadIPlData1( IPLWicketsPOJO.class,csvFilePath);
+    //    String numOfRecords = new IPLAdapter().loadIPlData1(field, IPLWicketsPOJO.class,csvFilePath);
+        return iplMap;
     }
 }

@@ -1,4 +1,5 @@
 import com.opencsv.bean.CsvBindByName;
+
 public class IPLRunsPOJO {
 
     @CsvBindByName(column = "PLAYER", required = true)
@@ -12,6 +13,12 @@ public class IPLRunsPOJO {
 
     @CsvBindByName(column = "4s", required = true)
     public int fours;
+
     @CsvBindByName(column = "6s", required = true)
     public int six;
+
+    @CsvBindByName(column = "Runs", required = true)
+    public int runs;
+
+
 }

@@ -1,6 +1,6 @@
 public class IPLException extends RuntimeException {
     enum ExceptionType {
-        CENSUS_FILE_PROBLEM, UNABLE_TO_PARSE,NO_CENSUS_DATA, INVALID_COUNTRY;
+        IPL_FILE_PROBLEM, NO_IPL_DATA;
     }
 
     ExceptionType type;
@@ -9,4 +9,4 @@ public class IPLException extends RuntimeException {
         super(message);
         this.type = type;
     }
-   }
+}
