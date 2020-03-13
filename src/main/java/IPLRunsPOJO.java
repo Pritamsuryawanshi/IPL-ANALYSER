@@ -19,6 +19,4 @@ public class IPLRunsPOJO {
 
     @CsvBindByName(column = "Runs", required = true)
     public int runs;
-
-
 }

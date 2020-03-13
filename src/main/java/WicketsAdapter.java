@@ -3,9 +3,8 @@ import java.util.Map;
 
 public class WicketsAdapter {
 
-    public Map<String, IPLDTO> loadCensusData( String... csvFilePath) throws IOException {
-        Map<String, IPLDTO> iplMap = new IPLAdapter().loadIPlData1( IPLWicketsPOJO.class,csvFilePath);
-    //    String numOfRecords = new IPLAdapter().loadIPlData1(field, IPLWicketsPOJO.class,csvFilePath);
+    public Map<String, IPLDTO> loadCensusData(String... csvFilePath) throws IOException {
+        Map<String, IPLDTO> iplMap = new IPLAdapter().loadIPlData1(IPLWicketsPOJO.class, csvFilePath);
         return iplMap;
     }
 }

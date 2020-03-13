@@ -22,7 +22,6 @@ public class IPLDTO {
         fours = iplRunsPOJO.fours;
         six = iplRunsPOJO.six;
         runs = iplRunsPOJO.runs;
-
     }
 
     public IPLDTO(IPLWicketsPOJO iplWicketsPOJO) {

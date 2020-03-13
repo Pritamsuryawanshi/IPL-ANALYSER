@@ -11,10 +11,6 @@ public class RunsAdapter {
 
     public Map<String, IPLDTO> loadCensusData(String... csvFilePath) throws IOException {
         iplMap = new IPLAdapter().loadIPlData1(IPLRunsPOJO.class, csvFilePath);
-        /*censusDTOList = censusMap.values().stream().collect(Collectors.toList());
-        this.sort(this.sortMap.get(sortField).reversed());
-        String sortedStateCensus = new Gson().toJson(this.censusDTOList);
-        return sortedStateCensus;*/
         return iplMap;
     }
 }
